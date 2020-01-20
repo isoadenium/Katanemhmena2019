@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import gr.hua.dit.entity.Admin;
+import gr.hua.dit.entity.Departement;
 import gr.hua.dit.entity.Employee;
 import gr.hua.dit.entity.Student;
 import javax.transaction.Transactional;
@@ -28,9 +29,20 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	@Transactional
 	public void addStudent(Student student) {
-		Session currentSession = sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 
-		currentSession.save(student);
+		//session.beginTransaction();
+		
+		Departement dep = session.get(Departement.class, student.getDep().getDep_id());
+		
+		dep.addStudent(student);
+		
+		session.save(student);
+		
+		session.getTransaction().commit();
+
+        System.out.println("Done!");
+		
 
 	}
 

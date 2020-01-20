@@ -17,7 +17,7 @@
 
 	<!-- application properties file -->
 	<context:property-placeholder
-		location="classpath:application.properties" />
+		location="classpath:jdbc.properties" />
 
 
 	<!-- Add support for component scanning -->

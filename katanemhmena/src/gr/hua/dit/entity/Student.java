@@ -29,7 +29,8 @@ public class Student extends User {
 	@Column(name = "year_of_enrollment")
 	private int year_of_enrollment;
 
-	@ManyToOne(cascade = { CascadeType.ALL })
+	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinColumn(name = "std_dep_id")
 	private Departement dep;
 
