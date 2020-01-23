@@ -39,9 +39,9 @@ public class AdminDAOImpl implements AdminDAO {
 		
 		session.save(student);
 		
-		session.getTransaction().commit();
+		//session.getTransaction().commit();
 
-        System.out.println("Done!");
+        //System.out.println("Done!");
 		
 
 	}

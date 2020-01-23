@@ -47,7 +47,7 @@ public class AdminContoller {
 		student.setDate_of_birth(request.getParameter("date_of_birth"));
 		student.setYear_of_enrollment(Integer.parseInt(request.getParameter("year_of_enrollment")));
 		Departement dep = new Departement();
-		dep.setDep_name(request.getParameter("dep_name"));
+		dep.setDep_id(Integer.parseInt(request.getParameter("dep_name")));
 		student.setDep(dep);
 		adminDAO.addStudent(student);
 
