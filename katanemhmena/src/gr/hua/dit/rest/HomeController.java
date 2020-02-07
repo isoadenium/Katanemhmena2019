@@ -1,4 +1,4 @@
-package gr.hua.dit.mvc;
+package gr.hua.dit.rest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +40,12 @@ public class HomeController {
 	public String showMakeFormForm() {
 		return "makeFormForm";
 	}
+	
+	@RequestMapping("/showGiveStudentAm")
+	public String showGiveStudentAm() {
+		return "giveStudentAm";
+	}
+	
 }
 /*
  * @RequestMapping("/processForm") public String processForm() { return

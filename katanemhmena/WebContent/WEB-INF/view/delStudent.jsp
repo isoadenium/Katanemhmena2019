@@ -5,7 +5,7 @@
 </head>
 <body>
 	<form action="admin/delStudent" method="GET">
-		<input type="text" name="id" placeholder="id" /> <input type="submit" />
+		<input type="text" name="am" placeholder="am" /> <input type="submit" />
 	</form>
 </body>
 </html>

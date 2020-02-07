@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h1>Spring MVC demo project!</h1>
+	<%=new java.util.Date()%>
 
 	<a href="<c:url value="/showAddAdminForm"></c:url>">Add Admin</a>
 	<a href="<c:url value="/showAddStudentForm"></c:url>">Add Student</a>
@@ -17,5 +18,7 @@
 	<a href="<c:url value="/showDelEmployee"></c:url>">Delete Employee</a>
 	<a href="<c:url value="/showDelStudent"></c:url>">Delete Student</a>
 	<a href="<c:url value="/showMakeFormForm"></c:url>">Make Form</a>
+	<a href="<c:url value="/showGiveStudentAm"></c:url>">Get Student</a>
+
 </body>
 </html>

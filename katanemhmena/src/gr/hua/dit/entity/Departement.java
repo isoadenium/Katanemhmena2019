@@ -31,8 +31,8 @@ public class Departement {
 	@OneToOne(mappedBy = "departement", cascade = CascadeType.ALL)
 	private Employee employee;
 
-	@OneToMany(mappedBy = "dep", cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
+	@OneToMany(mappedBy = "dep", cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH,
+			CascadeType.REFRESH })
 	private List<Student> students;
 
 	public Departement() {
@@ -40,19 +40,13 @@ public class Departement {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-	
 	public int getDep_id() {
 		return dep_id;
 	}
 
-
-
 	public void setDep_id(int dep_id) {
 		this.dep_id = dep_id;
 	}
-
-
 
 	public int getLimit() {
 		return dep_limit;
@@ -71,13 +65,21 @@ public class Departement {
 	}
 
 	public void addStudent(Student astudent) {
-        if(students == null) {
-        	students = new ArrayList<>();
-        }
-        students.add(astudent);
-        astudent.setDep(this);
-}
+		if (students == null) {
+			students = new ArrayList<>();
+		}
+		students.add(astudent);
+		astudent.setDep(this);
+	}
 	
+	public void delStudent(Student astudent) {
+		if (students == null) {
+			return;
+		}
+		students.remove(astudent.getStudent_id());
+		
+	}
+
 	@Override
 	public String toString() {
 		return "Departement [dep_id=" + dep_id + ", limit=" + dep_limit + ", dep_name=" + dep_name + ", employee="

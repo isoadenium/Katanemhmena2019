@@ -3,6 +3,8 @@ package gr.hua.dit.entity;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.annotations.NaturalId;
+
 @MappedSuperclass
 public class User {
 	@Column(name = "first_name")
@@ -13,6 +15,7 @@ public class User {
 	private String email;
 	@Column(name = "role")
 	private String role;
+	@NaturalId
 	@Column(name = "am")
 	private String am;
 
