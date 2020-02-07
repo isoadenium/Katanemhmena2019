@@ -2,21 +2,25 @@ package gr.hua.dit.service;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.Session;
+import org.springframework.stereotype.Service;
 
 import gr.hua.dit.dao.DepartementDAO;
+import gr.hua.dit.dao.EmployeeDAO;
 import gr.hua.dit.dao.StudentDAO;
 import gr.hua.dit.entity.Departement;
+import gr.hua.dit.entity.Employee;
 import gr.hua.dit.entity.Student;
 
+@Service
 public class AdminServiceImpl implements AdminService {
-	
+
 	private DepartementDAO departementDAO;
 	private StudentDAO studentDAO;
+	private EmployeeDAO employeeDAO;
+
 	@Override
 	@Transactional
 	public void addStudent(Student student) {
-		
 
 		// session.beginTransaction();
 
@@ -30,5 +34,11 @@ public class AdminServiceImpl implements AdminService {
 
 		// System.out.println("Done!");
 
+	}
+
+	@Override
+	@Transactional
+	public void addEmployee(Employee employee) {
+		employeeDAO.saveEmployee(employee);
 	}
 }

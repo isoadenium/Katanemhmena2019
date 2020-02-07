@@ -43,6 +43,30 @@ public class Check {
 		this.is_approved = is_approved;
 	}
 
+	public int getCheck_id() {
+		return check_id;
+	}
+
+	public void setCheck_id(int check_id) {
+		this.check_id = check_id;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public Form getForm() {
+		return form;
+	}
+
+	public void setForm(Form form) {
+		this.form = form;
+	}
+
 	@Override
 	public String toString() {
 		return "Check [check_id=" + check_id + ", is_approved=" + is_approved + ", employee=" + employee + ", form="

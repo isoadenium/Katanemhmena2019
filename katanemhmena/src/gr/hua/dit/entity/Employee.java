@@ -1,5 +1,6 @@
 package gr.hua.dit.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -67,6 +68,14 @@ public class Employee extends InternalUser {
 
 	public void setDepartement(Departement departement) {
 		this.departement = departement;
+	}
+
+	public void addCheck(Check check) {
+		if (this.check == null) {
+			this.check = new ArrayList<>();
+		}
+		this.check.add(check);
+		check.setEmployee(this);
 	}
 
 	@Override
