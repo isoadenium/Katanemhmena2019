@@ -41,4 +41,23 @@ public class AdminServiceImpl implements AdminService {
 	public void addEmployee(Employee employee) {
 		employeeDAO.saveEmployee(employee);
 	}
+
+	@Override
+	@Transactional
+	public void deleteEmployee(Employee employee) {
+		employeeDAO.deleteEmployee(employee.getEmp_id());
+
+	}
+
+	@Override
+	@Transactional
+	public void deleteStudent(Student student) {
+
+		Departement dep = departementDAO.getDepartement(student.getDep().getDep_id());
+		dep.delStudent(student);
+
+		studentDAO.deleteStudent(student.getStudent_id());
+
+	}
+	
 }

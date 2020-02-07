@@ -9,4 +9,8 @@ public interface AdminService {
 
 	void addEmployee(Employee employee);
 
+	void deleteStudent(Student student);
+
+	void deleteEmployee(Employee employee);
+
 }
