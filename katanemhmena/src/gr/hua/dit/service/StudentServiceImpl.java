@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gr.hua.dit.dao.FormDAO;
+import gr.hua.dit.dao.PointsDAO;
 import gr.hua.dit.dao.StudentDAO;
 import gr.hua.dit.entity.Form;
+import gr.hua.dit.entity.Points;
 import gr.hua.dit.entity.Student;
 
 @Service
@@ -15,6 +17,7 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private StudentDAO studentDAO;
 	private FormDAO formDAO;
+	private PointsDAO pointsDAO;
 
 	@Override
 	@Transactional
@@ -30,6 +33,11 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public Form seeForm(int id) {
 		return formDAO.getForm(id);
+	}
+	
+	@Override
+	public Points seePoints(int id) {
+		return pointsDAO.getPoints(id);
 	}
 
 }

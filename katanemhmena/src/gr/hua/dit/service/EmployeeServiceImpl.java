@@ -7,8 +7,10 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import gr.hua.dit.dao.EmployeeDAO;
+import gr.hua.dit.dao.PointsDAO;
 import gr.hua.dit.dao.StudentDAO;
 import gr.hua.dit.entity.Employee;
+import gr.hua.dit.entity.Points;
 import gr.hua.dit.entity.Student;
 
 @Service
@@ -16,6 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	private StudentDAO studentDAO;
 	private EmployeeDAO employeeDAO;
+	private PointsDAO pointsDAO;
 
 	@Override
 	@Transactional
@@ -40,6 +43,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public void delStudent(int id) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Points seePoints(int id) {
+		return pointsDAO.getPoints(id);
 	}
 
 }
