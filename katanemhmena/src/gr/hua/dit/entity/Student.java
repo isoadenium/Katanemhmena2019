@@ -29,8 +29,7 @@ public class Student extends User {
 	@Column(name = "year_of_enrollment")
 	private int year_of_enrollment;
 
-	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.DETACH, CascadeType.REFRESH})
+	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH })
 	@JoinColumn(name = "std_dep_id")
 	private Departement dep;
 
@@ -88,6 +87,20 @@ public class Student extends User {
 
 	public void setDep(Departement dep) {
 		this.dep = dep;
+	}
+
+	public void setPoints() {
+
+		int points = 0;
+		if (this.form.getFamilly_income() < 10000)
+			points += 100;
+		else if (this.form.getFamilly_income() < 15000)
+			points += 30;
+
+		points += this.form.getBro_sis() * 20;
+		if (!town.equals("Athens"))
+			points += 50;
+		this.points.setPoints(points);
 	}
 
 	@Override

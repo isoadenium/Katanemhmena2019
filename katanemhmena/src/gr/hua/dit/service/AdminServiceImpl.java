@@ -4,9 +4,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import gr.hua.dit.dao.AdminDAO;
 import gr.hua.dit.dao.DepartementDAO;
 import gr.hua.dit.dao.EmployeeDAO;
 import gr.hua.dit.dao.StudentDAO;
+import gr.hua.dit.entity.Admin;
 import gr.hua.dit.entity.Departement;
 import gr.hua.dit.entity.Employee;
 import gr.hua.dit.entity.Student;
@@ -17,6 +19,7 @@ public class AdminServiceImpl implements AdminService {
 	private DepartementDAO departementDAO;
 	private StudentDAO studentDAO;
 	private EmployeeDAO employeeDAO;
+	private AdminDAO adminDAO;
 
 	@Override
 	@Transactional
@@ -59,5 +62,10 @@ public class AdminServiceImpl implements AdminService {
 		studentDAO.deleteStudent(student.getStudent_id());
 
 	}
-	
+
+	@Override
+	@Transactional
+	public Admin getAdmin(int id) {
+		return adminDAO.getAdmin(id);
+	}
 }
