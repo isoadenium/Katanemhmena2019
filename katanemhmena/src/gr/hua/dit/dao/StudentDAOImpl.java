@@ -2,14 +2,12 @@ package gr.hua.dit.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import gr.hua.dit.entity.Form;
 import gr.hua.dit.entity.Student;
 
 @Repository
@@ -28,26 +26,35 @@ public class StudentDAOImpl implements StudentDAO {
 
 	@Override
 	public Student getStudent(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = sessionFactory.getCurrentSession();
+		return currentSession.get(Student.class, id);
 	}
 
 	@Override
 	public void saveStudent(Student student) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		currentSession.save(student);
 	}
 
 	@Override
 	public void deleteStudent(int id) {
-		// TODO Auto-generated method stub
-		
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		Student student = currentSession.get(Student.class, id);
+
+		currentSession.delete(student);
 	}
 
 	@Override
 	public List<Student> getStudents() {
-		// TODO Auto-generated method stub
-		return null;
+		Session currentSession = sessionFactory.getCurrentSession();
+
+		Query<Student> query = currentSession.createQuery("from student order by lastName", Student.class);
+
+		List<Student> students = query.getResultList();
+
+		return students;
 	}
 
 }
