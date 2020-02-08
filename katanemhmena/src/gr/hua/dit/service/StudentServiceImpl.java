@@ -24,7 +24,11 @@ public class StudentServiceImpl implements StudentService {
 	public Student getSelf(int id) {
 		return studentDAO.getStudent(id);
 	}
-
+	@Override
+	@Transactional
+	public Student getSelfByName(String am) {
+		return studentDAO.getStudentByName(am);
+	}
 	@Override
 	public void makeForm(Form form) {
 		formDAO.saveForm(form);

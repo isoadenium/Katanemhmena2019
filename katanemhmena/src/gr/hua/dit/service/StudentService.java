@@ -14,4 +14,6 @@ public interface StudentService {
 
 	Points seePoints(int id);
 
+	Student getSelfByName(String am);
+
 }

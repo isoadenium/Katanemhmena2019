@@ -29,6 +29,13 @@ public class StudentDAOImpl implements StudentDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		return currentSession.get(Student.class, id);
 	}
+	
+	@Override
+	
+	public Student getStudentByName(String am) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		return currentSession.bySimpleNaturalId(Student.class).load(am);
+	}
 
 	@Override
 	public void saveStudent(Student student) {
