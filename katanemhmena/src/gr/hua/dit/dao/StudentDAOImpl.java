@@ -29,12 +29,12 @@ public class StudentDAOImpl implements StudentDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		return currentSession.get(Student.class, id);
 	}
-	
+
 	@Override
-	
-	public Student getStudentByName(String am) {
+
+	public Student getStudentByName(String first_name) {
 		Session currentSession = sessionFactory.getCurrentSession();
-		return currentSession.bySimpleNaturalId(Student.class).load(am);
+		return currentSession.bySimpleNaturalId(Student.class).load(first_name);
 	}
 
 	@Override

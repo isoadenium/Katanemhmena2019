@@ -16,7 +16,9 @@ import gr.hua.dit.entity.Student;
 public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private StudentDAO studentDAO;
+	@Autowired
 	private FormDAO formDAO;
+	@Autowired
 	private PointsDAO pointsDAO;
 
 	@Override
@@ -24,22 +26,27 @@ public class StudentServiceImpl implements StudentService {
 	public Student getSelf(int id) {
 		return studentDAO.getStudent(id);
 	}
+
 	@Override
 	@Transactional
 	public Student getSelfByName(String am) {
 		return studentDAO.getStudentByName(am);
 	}
+
 	@Override
+	@Transactional
 	public void makeForm(Form form) {
 		formDAO.saveForm(form);
 	}
 
 	@Override
+	@Transactional
 	public Form seeForm(int id) {
 		return formDAO.getForm(id);
 	}
-	
+
 	@Override
+	@Transactional
 	public Points seePoints(int id) {
 		return pointsDAO.getPoints(id);
 	}

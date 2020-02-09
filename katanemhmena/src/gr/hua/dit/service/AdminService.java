@@ -16,4 +16,8 @@ public interface AdminService {
 
 	Admin getAdmin(int id);
 
+	Student getStudent(String am);
+
+	Student getStudent(int id);
+
 }

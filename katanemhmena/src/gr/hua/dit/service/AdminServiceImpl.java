@@ -2,6 +2,7 @@ package gr.hua.dit.service;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gr.hua.dit.dao.AdminDAO;
@@ -15,10 +16,13 @@ import gr.hua.dit.entity.Student;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-
+	@Autowired
 	private DepartementDAO departementDAO;
+	@Autowired
 	private StudentDAO studentDAO;
+	@Autowired
 	private EmployeeDAO employeeDAO;
+	@Autowired
 	private AdminDAO adminDAO;
 
 	@Override
@@ -37,6 +41,13 @@ public class AdminServiceImpl implements AdminService {
 
 		// System.out.println("Done!");
 
+	}
+
+	@Override
+	@Transactional
+	public Student getStudent(int id) {
+
+		return studentDAO.getStudent(id);
 	}
 
 	@Override
@@ -67,5 +78,11 @@ public class AdminServiceImpl implements AdminService {
 	@Transactional
 	public Admin getAdmin(int id) {
 		return adminDAO.getAdmin(id);
+	}
+
+	@Override
+	public Student getStudent(String am) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

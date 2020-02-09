@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import gr.hua.dit.dao.EmployeeDAO;
@@ -15,9 +16,11 @@ import gr.hua.dit.entity.Student;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
-
+	@Autowired
 	private StudentDAO studentDAO;
+	@Autowired
 	private EmployeeDAO employeeDAO;
+	@Autowired
 	private PointsDAO pointsDAO;
 
 	@Override

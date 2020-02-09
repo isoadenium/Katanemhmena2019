@@ -4,7 +4,7 @@
 <title>Admin Input Form</title>
 </head>
 <body>
-	<form action="student/makeForm" method="GET">
+	<form action="rest/student/makeform" method="GET">
 		<input type="text" name="bro_sis" placeholder="bro_sis" />
 		<input type="text" name="familly_income" placeholder="familly_income" /> 
 		<input type="text" name="income" placeholder="income" /> 

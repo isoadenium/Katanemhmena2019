@@ -65,6 +65,30 @@ public class Student extends User {
 		this.town = town;
 	}
 
+	public Points getPoints() {
+		return points;
+	}
+
+	public void setPoints(Points points) {
+		this.points = points;
+	}
+
+	public Form getForm() {
+		return form;
+	}
+
+	public void setForm(Form form) {
+		this.form = form;
+	}
+
+	public Food getFood() {
+		return food;
+	}
+
+	public void setFood(Food food) {
+		this.food = food;
+	}
+
 	public String getDate_of_birth() {
 		return date_of_birth;
 	}

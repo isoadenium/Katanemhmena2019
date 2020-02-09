@@ -7,6 +7,7 @@ import org.hibernate.annotations.NaturalId;
 
 @MappedSuperclass
 public class User {
+	@NaturalId
 	@Column(name = "first_name")
 	private String first_name;
 	@Column(name = "last_name")
@@ -15,7 +16,7 @@ public class User {
 	private String email;
 	@Column(name = "role")
 	private String role;
-	@NaturalId
+	
 	@Column(name = "am")
 	private String am;
 

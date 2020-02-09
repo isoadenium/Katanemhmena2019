@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import gr.hua.dit.entity.Form;
+import gr.hua.dit.entity.Student;
 import gr.hua.dit.service.StudentService;
 
 @RestController
@@ -17,9 +18,10 @@ public class StudentController {
 	@Autowired
 	private StudentService studentService;
 
-	@RequestMapping(value = "/makeform", method = RequestMethod.POST, produces = { "application/json", "application/xml" })
-	public Form makeForm(@RequestParam("bro_sis") String bro_sis,
-			@RequestParam("familly_income") String familly_income, @RequestParam("income") String income, @RequestParam("unemp_parents") String unemp_parents) {
+	@RequestMapping(value = "/makeform", method = RequestMethod.GET, produces = { "application/json",
+			"application/xml" })
+	public Form makeForm(@RequestParam("bro_sis") String bro_sis, @RequestParam("familly_income") String familly_income,
+			@RequestParam("income") String income, @RequestParam("unemp_parents") String unemp_parents) {
 
 		Form form = new Form();
 
@@ -28,12 +30,12 @@ public class StudentController {
 		form.setIncome(Integer.parseInt(income));
 		form.setUnemp_parents(Integer.parseInt(unemp_parents));
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		
-		//student.setStudent_id(Integer.parseInt(request.getParameter("student_id")));
 
-		form.setStudent(studentService.getSelfByName(authentication.getName()));
+		// student.setStudent_id(Integer.parseInt(request.getParameter("student_id")));
+		Student astudent = studentService.getSelfByName(authentication.getName());
+		form.setStudent(astudent);
+		astudent.setForm(form);
 		studentService.makeForm(form);
-
 		return form;
 	}
 
